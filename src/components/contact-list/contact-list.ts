@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
 })
 export class ContactListComponent {
 
+  contacts: String[] = ['Juan','Pedro'];
 
   constructor() {
     console.log('Hello ContactListComponent Component');
