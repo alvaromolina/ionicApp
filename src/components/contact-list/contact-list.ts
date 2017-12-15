@@ -1,5 +1,5 @@
 import { Contact } from './../../models/contact';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * Generated class for the ContactListComponent component.
@@ -13,14 +13,7 @@ import { Component } from '@angular/core';
 })
 export class ContactListComponent {
 
-  listContacts: Contact[] = [
-    { name: 'Juan'
-
-    },
-    { name: 'John'
-    
-    }
-  ];
+  @Input() listContacts: Contact[];
 
   constructor() {
     console.log('Hello ContactListComponent Component');

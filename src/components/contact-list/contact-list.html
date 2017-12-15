@@ -1,7 +1,7 @@
 
 <ion-list>
   <button ion-item *ngFor="let item of listContacts">
-  {{ item.name }}
+  {{ item.name | prueba | uppercase}}
   </button>  
 </ion-list>
 

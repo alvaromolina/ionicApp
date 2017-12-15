@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Contact } from '../../models/contact';
 
 @Component({
   selector: 'page-home',
@@ -7,6 +8,14 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  contacts: Contact[] = [
+    { name: 'Juan'
+
+    },
+    { name: 'John'
+    
+    }
+  ];
   constructor(public navCtrl: NavController) {
 
   }

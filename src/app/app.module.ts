@@ -1,3 +1,4 @@
+import { PruebaPipe } from './../pipes/prueba/prueba';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -12,7 +13,8 @@ import { ContactListComponent } from '../components/contact-list/contact-list';
   declarations: [
     MyApp,
     HomePage,
-    ContactListComponent
+    ContactListComponent,
+    PruebaPipe
   ],
   imports: [
     BrowserModule,
