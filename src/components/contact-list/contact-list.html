@@ -1,6 +1,6 @@
 
 <ion-list>
-  <button ion-item *ngFor="let item of listContacts">
+  <button ion-item  *ngFor="let item of listContacts" (click)="goToContactInfo(item)">
   {{ item.name | prueba | uppercase}}
   </button>  
 </ion-list>

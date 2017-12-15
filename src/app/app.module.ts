@@ -8,13 +8,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ContactListComponent } from '../components/contact-list/contact-list';
+import { ContactInfoPage } from '../pages/contact-info/contact-info';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ContactListComponent,
-    PruebaPipe
+    PruebaPipe,
+    ContactInfoPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { ContactListComponent } from '../components/contact-list/contact-list';
   entryComponents: [
     MyApp,
     HomePage,
-    ContactListComponent
+    ContactListComponent,
+    ContactInfoPage
   ],
   providers: [
     StatusBar,
