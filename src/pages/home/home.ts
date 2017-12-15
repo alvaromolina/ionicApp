@@ -1,3 +1,4 @@
+import { ContactServiceProvider } from './../../providers/contact-service/contact-service';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Contact } from '../../models/contact';
@@ -8,16 +9,17 @@ import { Contact } from '../../models/contact';
 })
 export class HomePage {
 
-  contacts: Contact[] = [
-    { name: 'Juan'
+  searchQuery: String;
+  contacts: Contact[];
 
-    },
-    { name: 'John'
-    
-    }
-  ];
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, 
+    public contactService: ContactServiceProvider ) {
+    this.contacts = contactService.getContacts();
+  }
 
+  updateContacts(){
+    console.log(this.searchQuery);
+    this.contacts = this.contactService.filterContacts(this.searchQuery);
   }
 
 }

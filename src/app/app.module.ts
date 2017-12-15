@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ContactListComponent } from '../components/contact-list/contact-list';
 import { ContactInfoPage } from '../pages/contact-info/contact-info';
+import { ContactServiceProvider } from '../providers/contact-service/contact-service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ContactInfoPage } from '../pages/contact-info/contact-info';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ContactServiceProvider
   ]
 })
 export class AppModule {}
