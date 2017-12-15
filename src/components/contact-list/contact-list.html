@@ -1,4 +1,8 @@
-<!-- Generated template for the ContactListComponent component -->
-<div>
- {{contacts}}
-</div>
+
+<ion-list>
+  <button ion-item *ngFor="let item of listContacts">
+  {{ item.name }}
+  </button>  
+</ion-list>
+
+

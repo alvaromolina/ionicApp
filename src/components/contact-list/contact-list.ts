@@ -1,3 +1,4 @@
+import { Contact } from './../../models/contact';
 import { Component } from '@angular/core';
 
 /**
@@ -12,7 +13,14 @@ import { Component } from '@angular/core';
 })
 export class ContactListComponent {
 
-  contacts: String[] = ['Juan','Pedro'];
+  listContacts: Contact[] = [
+    { name: 'Juan'
+
+    },
+    { name: 'John'
+    
+    }
+  ];
 
   constructor() {
     console.log('Hello ContactListComponent Component');
