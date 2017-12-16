@@ -13,6 +13,7 @@ import { ContactInfoPage } from '../pages/contact-info/contact-info';
 import { ContactServiceProvider } from '../providers/contact-service/contact-service';
 import { StatusPage } from '../pages/status/status';
 import { StartPage } from '../pages/start/start';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StartPage } from '../pages/start/start';
     HomePage,
     PruebaPipe,
     ContactInfoPage,
-    StartPage
+    StartPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { StartPage } from '../pages/start/start';
     MyApp,
     HomePage,
     ContactInfoPage,
-    StartPage
+    StartPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
