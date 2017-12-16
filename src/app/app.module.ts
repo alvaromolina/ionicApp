@@ -1,3 +1,4 @@
+import { ChatPage } from './../pages/chat/chat';
 import { ContactsPage } from './../pages/contacts/contacts';
 import { PruebaPipe } from './../pipes/prueba/prueba';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +23,8 @@ import { LoginPage } from '../pages/login/login';
     PruebaPipe,
     ContactInfoPage,
     StartPage,
-    LoginPage
+    LoginPage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { LoginPage } from '../pages/login/login';
     HomePage,
     ContactInfoPage,
     StartPage,
-    LoginPage
+    LoginPage,
+    ChatPage
   ],
   providers: [
     StatusBar,

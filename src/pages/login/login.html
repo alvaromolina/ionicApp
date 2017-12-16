@@ -23,7 +23,7 @@
       </ion-item>
       
     </ion-list>
-    <button ion-button full>Login</button>
-    <button ion-button full color="secondary" clear>Register</button>
+    <button ion-button full (click)="goToLogin()">Login</button>
+    <button ion-button full color="secondary" (click)="navCtrl.push('RegisterPage')" clear>Register</button>
     
 </ion-content>
