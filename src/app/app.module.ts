@@ -1,3 +1,4 @@
+import { ContactsPage } from './../pages/contacts/contacts';
 import { PruebaPipe } from './../pipes/prueba/prueba';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -10,14 +11,16 @@ import { HomePage } from '../pages/home/home';
 import { ContactListComponent } from '../components/contact-list/contact-list';
 import { ContactInfoPage } from '../pages/contact-info/contact-info';
 import { ContactServiceProvider } from '../providers/contact-service/contact-service';
+import { StatusPage } from '../pages/status/status';
+import { StartPage } from '../pages/start/start';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ContactListComponent,
     PruebaPipe,
-    ContactInfoPage
+    ContactInfoPage,
+    StartPage
   ],
   imports: [
     BrowserModule,
@@ -27,8 +30,8 @@ import { ContactServiceProvider } from '../providers/contact-service/contact-ser
   entryComponents: [
     MyApp,
     HomePage,
-    ContactListComponent,
-    ContactInfoPage
+    ContactInfoPage,
+    StartPage
   ],
   providers: [
     StatusBar,

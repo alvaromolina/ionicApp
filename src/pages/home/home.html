@@ -5,9 +5,3 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="updateContacts()"></ion-searchbar>
-  <contact-list [listContacts]="contacts">
-  </contact-list>
-</ion-content>
