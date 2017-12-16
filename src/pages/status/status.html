@@ -6,13 +6,19 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>status</ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+
+    <ion-title>Estado</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="goToStatus()"> 
+        <ion-icon name="add" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <status-list [statusList]="statusList"></status-list>
 </ion-content>

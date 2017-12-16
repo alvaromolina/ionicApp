@@ -17,9 +17,12 @@ export class StatusPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad StatusPage');
   }
 
+  goToStatus(){
+
+  }
 }

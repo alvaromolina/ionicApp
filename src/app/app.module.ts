@@ -15,6 +15,7 @@ import { ContactServiceProvider } from '../providers/contact-service/contact-ser
 import { StatusPage } from '../pages/status/status';
 import { StartPage } from '../pages/start/start';
 import { LoginPage } from '../pages/login/login';
+import { StatusServiceProvider } from '../providers/status-service/status-service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { LoginPage } from '../pages/login/login';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ContactServiceProvider
+    ContactServiceProvider,
+    StatusServiceProvider
   ]
 })
 export class AppModule {}
