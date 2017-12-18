@@ -12,7 +12,6 @@ export class Message {
       this.status = status;
       this.date = date;
       this.contact = contact;
-      
   }
   
 }

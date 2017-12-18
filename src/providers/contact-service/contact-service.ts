@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Contact } from '../../models/contact';
+import { HttpClient } from '@angular/common/http';
 
 /*
   Generated class for the ContactServiceProvider provider.
@@ -10,27 +11,19 @@ import { Contact } from '../../models/contact';
 @Injectable()
 export class ContactServiceProvider {
 
-  contacts: Contact[] = [
-    { name: 'Juan'
 
-    },
-    { name: 'John'
-    
-    }
-  ];
-
-  constructor() {
+  constructor(public http: HttpClient) {
     console.log('Hello ContactServiceProvider Provider');
   }
 
-  getContacts(): Contact[]{
-    return this.contacts;
+  getContacts(){
+    return this.http.get('http://jsonplaceholder.typicode.com/users');
   }
 
-  filterContacts(searchQuery: String): Contact[]{
+  /*filterContacts(searchQuery: String): Contact[]{
     return this.contacts.filter((contact) => {
       return contact.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1;
     });
-  }
+  }*/
 
 }

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { ChatPage } from './../pages/chat/chat';
 import { ContactsPage } from './../pages/contacts/contacts';
 import { PruebaPipe } from './../pipes/prueba/prueba';
@@ -16,6 +17,7 @@ import { StatusPage } from '../pages/status/status';
 import { StartPage } from '../pages/start/start';
 import { LoginPage } from '../pages/login/login';
 import { StatusServiceProvider } from '../providers/status-service/status-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { StatusServiceProvider } from '../providers/status-service/status-servic
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +48,8 @@ import { StatusServiceProvider } from '../providers/status-service/status-servic
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ContactServiceProvider,
-    StatusServiceProvider
+    StatusServiceProvider,
+    HttpClient
   ]
 })
 export class AppModule {}

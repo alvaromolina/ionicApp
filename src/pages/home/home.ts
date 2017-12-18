@@ -14,12 +14,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, 
     public contactService: ContactServiceProvider ) {
-    this.contacts = contactService.getContacts();
   }
 
-  updateContacts(){
-    console.log(this.searchQuery);
-    this.contacts = this.contactService.filterContacts(this.searchQuery);
-  }
+
 
 }
