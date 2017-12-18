@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Contact } from '../../models/contact';
 import { ContactServiceProvider } from '../../providers/contact-service/contact-service';
+import { isArray } from 'ionic-angular/util/util';
 
 /**
  * Generated class for the ContactsPage page.
@@ -25,13 +26,16 @@ export class ContactsPage {
     public contactService: ContactServiceProvider ) {
 
     contactService.getContacts().subscribe(data => {
-        data.forEach(contact => {
-          console.log(contact);
-          this.contacts.push({name: contact.name})
-        });
+      console.log(data);
+      if(isArray(data)){
+          data.forEach(contact => {
+            console.log(contact);
+            this.contacts.push({name: contact.name})
+          });
+        }
       }
     );
-    
+
     //this.contacts = contactService.getContacts();
   }
   
