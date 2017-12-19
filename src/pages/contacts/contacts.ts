@@ -30,9 +30,10 @@ export class ContactsPage {
     public contactService: ContactServiceProvider, 
     public alertCtrl: AlertController ) {
 
-    contactService.getContacts().subscribe(data => {
+    let suscriptor =contactService.getContacts().subscribe(data => {
        this.contacts = data;
     });
+
 
     /*contactService.getContacts().subscribe(data => {
       console.log(data);
