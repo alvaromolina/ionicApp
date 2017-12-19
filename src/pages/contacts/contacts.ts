@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Contact } from '../../models/contact';
 import { ContactServiceProvider } from '../../providers/contact-service/contact-service';
 import { isArray } from 'ionic-angular/util/util';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the ContactsPage page.
@@ -20,12 +21,20 @@ import { isArray } from 'ionic-angular/util/util';
 export class ContactsPage {
 
   searchQuery: String;
-  contacts: Contact[] = new Array();
+  //contacts: Observable<{}[]>;
+  contacts: Contact[];
+
+
 
   constructor(public navCtrl: NavController, 
-    public contactService: ContactServiceProvider ) {
+    public contactService: ContactServiceProvider, 
+    public alertCtrl: AlertController ) {
 
     contactService.getContacts().subscribe(data => {
+       this.contacts = data;
+    });
+
+    /*contactService.getContacts().subscribe(data => {
       console.log(data);
       if(isArray(data)){
           data.forEach(contact => {
@@ -34,9 +43,43 @@ export class ContactsPage {
           });
         }
       }
-    );
+    );*/
 
     //this.contacts = contactService.getContacts();
+  }
+
+  addContact(){
+    let prompt = this.alertCtrl.create({
+      title: 'Contacto',
+      message: "Contacto",
+      inputs: [
+        {
+          name: 'name',
+          placeholder: 'Name'
+        },
+        {
+          name: 'email',
+          placeholder: 'Email'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.contactService.addContact(data);
+
+  
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
   
   /*updateContacts(){

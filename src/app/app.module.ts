@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { ChatPage } from './../pages/chat/chat';
 import { ContactsPage } from './../pages/contacts/contacts';
 import { PruebaPipe } from './../pipes/prueba/prueba';
@@ -18,6 +17,19 @@ import { StartPage } from '../pages/start/start';
 import { LoginPage } from '../pages/login/login';
 import { StatusServiceProvider } from '../providers/status-service/status-service';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
+
+
+export const configFirebase = {
+  apiKey: "AIzaSyBlYS5RgazMMuOp5IhhVjFu8C2ZNZ8gF4I",
+  authDomain: "ionic-chat-77c25.firebaseapp.com",
+  databaseURL: "https://ionic-chat-77c25.firebaseio.com",
+  projectId: "ionic-chat-77c25",
+  storageBucket: "ionic-chat-77c25.appspot.com",
+  messagingSenderId: "922431712855"
+};
 
 @NgModule({
   declarations: [
@@ -32,7 +44,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(configFirebase),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +63,8 @@ import { HttpClientModule } from '@angular/common/http';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ContactServiceProvider,
     StatusServiceProvider,
-    HttpClient
+    HttpClient,
+    AngularFireDatabase
   ]
 })
 export class AppModule {}
