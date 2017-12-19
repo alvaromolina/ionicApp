@@ -19,6 +19,7 @@ import { StatusServiceProvider } from '../providers/status-service/status-servic
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
 import { NewStatusPage } from '../pages/new-status/new-status';
 
@@ -48,7 +49,8 @@ export const configFirebase = {
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     AngularFireModule.initializeApp(configFirebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
