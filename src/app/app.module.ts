@@ -1,3 +1,4 @@
+import { Camera } from '@ionic-native/camera';
 import { ChatPage } from './../pages/chat/chat';
 import { ContactsPage } from './../pages/contacts/contacts';
 import { PruebaPipe } from './../pipes/prueba/prueba';
@@ -41,7 +42,8 @@ export const configFirebase = {
     ContactInfoPage,
     StartPage,
     LoginPage,
-    ChatPage
+    ChatPage,
+    NewStatusPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ export const configFirebase = {
     ContactInfoPage,
     StartPage,
     LoginPage,
-    ChatPage
+    ChatPage,
+    NewStatusPage
   ],
   providers: [
     StatusBar,
@@ -68,7 +71,8 @@ export const configFirebase = {
     StatusServiceProvider,
     HttpClient,
     AngularFireDatabase,
-    AngularFireAuth
+    AngularFireAuth,
+    Camera
   ]
 })
 export class AppModule {}

@@ -1,3 +1,4 @@
+import { StatusServiceProvider } from './../../providers/status-service/status-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NewStatusPage } from '../new-status/new-status';
@@ -16,8 +17,16 @@ import { Status } from '../../models/status';
   templateUrl: 'status.html',
 })
 export class StatusPage {
-  public status: Status;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  public statusList: Status[];
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public statusService: StatusServiceProvider) {
+      statusService.getStatuses()
+      .subscribe(data => {
+        this.statusList = data;
+      });
   }
   
   ionViewDidLoad() {
@@ -26,6 +35,5 @@ export class StatusPage {
 
   goToNewStatus(){
     this.navCtrl.push(NewStatusPage);
-
   }
 }

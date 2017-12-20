@@ -4,6 +4,7 @@ import { AngularFireList } from 'angularfire2/database/interfaces';
 import { Status } from '../../models/status';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /*
   Generated class for the StatusServiceProvider provider.
@@ -13,15 +14,17 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class StatusServiceProvider {
+  
   statuses: AngularFireList<Status>;
 
   constructor(public http: HttpClient, 
-    public db: AngularFireDatabase) {
-      this.statuses = db.list('/statuses');
+    public db: AngularFireDatabase,
+    public afAuth: AngularFireAuth) {
+      this.statuses = db.list('/statuses/'+afAuth.auth.currentUser.uid);
   }
 
   addStatus(status: Status){
-    this.statuses.push(status);
+    return this.statuses.push(status);
   }
 
   getStatuses(): Observable<Status[]>{
