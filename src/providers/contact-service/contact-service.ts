@@ -3,6 +3,7 @@ import { Contact } from '../../models/contact';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /*
   Generated class for the ContactServiceProvider provider.
@@ -17,9 +18,10 @@ export class ContactServiceProvider {
   contacts: AngularFireList<Contact>;;
 
   
-  constructor(public http: HttpClient, public contactsdb: AngularFireDatabase) {
-    console.log('Hello ContactServiceProvider Provider');
-    this.contacts = contactsdb.list('/contacts');
+  constructor(public http: HttpClient, 
+    public contactsdb: AngularFireDatabase,
+    public afAuth: AngularFireAuth ) {
+    this.contacts = contactsdb.list('/contacts/'+afAuth.auth.currentUser.uid);
   }
 
   getContacts(): Observable<Contact[]>{

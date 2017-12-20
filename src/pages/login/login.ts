@@ -1,6 +1,8 @@
 import { StartPage } from './../start/start';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { User } from '../../models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * Generated class for the LoginPage page.
@@ -16,16 +18,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
+  public user: User = new User();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public afAuth: AngularFireAuth, public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  goToLogin(){
-    this.navCtrl.push(StartPage);
+  login(){
+    console.log(this.user);
+    this.afAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
+    .then(result => {
+      this.navCtrl.push(StartPage);
+    }).catch(err => {
+      let toast = this.toastCtrl.create({
+        message: err.message,
+        duration: 3000
+      });
+      toast.present();
+      console.error(err);
+    });
 
   }
 
