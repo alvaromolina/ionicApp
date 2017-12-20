@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NewStatusPage } from '../new-status/new-status';
+import { Status } from '../../models/status';
 
 /**
  * Generated class for the StatusPage page.
@@ -14,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'status.html',
 })
 export class StatusPage {
-
+  public status: Status;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   
@@ -22,7 +24,8 @@ export class StatusPage {
     console.log('ionViewDidLoad StatusPage');
   }
 
-  goToStatus(){
+  goToNewStatus(){
+    this.navCtrl.push(NewStatusPage);
 
   }
 }

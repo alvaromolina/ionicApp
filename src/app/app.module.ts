@@ -41,8 +41,7 @@ export const configFirebase = {
     ContactInfoPage,
     StartPage,
     LoginPage,
-    ChatPage,
-    NewStatusPage
+    ChatPage
   ],
   imports: [
     BrowserModule,
