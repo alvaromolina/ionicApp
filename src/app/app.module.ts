@@ -24,7 +24,7 @@ import {AngularFireAuthModule, AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
 import { NewStatusPage } from '../pages/new-status/new-status';
 import { Geolocation } from '@ionic-native/geolocation';
-
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 export const configFirebase = {
   apiKey: "AIzaSyBlYS5RgazMMuOp5IhhVjFu8C2ZNZ8gF4I",
@@ -74,7 +74,8 @@ export const configFirebase = {
     AngularFireDatabase,
     AngularFireAuth,
     Camera,
-    Geolocation
+    Geolocation,
+    GoogleMaps
   ]
 })
 export class AppModule {}
