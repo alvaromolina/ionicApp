@@ -23,6 +23,7 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule, AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
 import { NewStatusPage } from '../pages/new-status/new-status';
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 export const configFirebase = {
@@ -72,7 +73,8 @@ export const configFirebase = {
     HttpClient,
     AngularFireDatabase,
     AngularFireAuth,
-    Camera
+    Camera,
+    Geolocation
   ]
 })
 export class AppModule {}
