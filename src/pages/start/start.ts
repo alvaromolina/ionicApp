@@ -17,6 +17,8 @@ export class StartPage {
 
   contactsRoot = 'ContactsPage'  
   statusRoot = 'StatusPage'
+  locationRoot = 'LocationPage'
+
 
 
   constructor(public navCtrl: NavController) {}

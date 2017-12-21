@@ -3,7 +3,7 @@ import { StatusServiceProvider } from './../../providers/status-service/status-s
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Status } from '../../models/status';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera';
 
 /**
  * Generated class for the NewStatusPage page.
@@ -24,7 +24,7 @@ export class NewStatusPage {
     quality: 100,
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE  
+    mediaType: this.camera.MediaType.PICTURE
   }
 
   
