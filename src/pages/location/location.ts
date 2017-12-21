@@ -11,6 +11,10 @@ import {
   MarkerOptions,
   Marker
  } from '@ionic-native/google-maps';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireObject } from 'angularfire2/database/interfaces';
+import { Observable } from 'rxjs/Observable';
  
 /**
  * Generated class for the LocationPage page.
@@ -26,15 +30,26 @@ import {
 })
 export class LocationPage {
 
-
+  locations: AngularFireList<Location>;
+  loc: AngularFireObject<Location>;
   watch: any;
   map: GoogleMap;
   location: Location = new Location();
+  marker: Marker;
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private geolocation: Geolocation,
-     private googleMaps: GoogleMaps) {
+     private googleMaps: GoogleMaps,
+     public db: AngularFireDatabase,
+     public afAuth: AngularFireAuth) {
+      //this.loc= db.object('/location/'+afAuth.auth.currentUser.uid+'/-L0uele4eXl164yeeCIx');
+      this.locations = db.list('/location/'+afAuth.auth.currentUser.uid);
+
+  }
+
+  addLocation(){
+    this.locations.push(this.location);
   }
 
   ionViewDidLoad() {
@@ -50,6 +65,8 @@ export class LocationPage {
     this.watch.subscribe((data) => {
       this.location.latitude = data.coords.latitude;
       this.location.longitude = data.coords.longitude;
+      this.marker.setPosition({lat: this.location.latitude, 
+        lng: this.location.longitude});
     });
     
   }
@@ -82,9 +99,19 @@ export class LocationPage {
             position: {
               lat: this.location.latitude,
               lng: this.location.longitude
-            }
+            },
+            draggable: true
           })
           .then(marker => {
+            this.marker = marker;
+
+            marker.on(GoogleMapsEvent.MARKER_DRAG_END)
+            .subscribe((marker) => {
+              console.log(marker);
+              this.location.latitude = marker.getPosition().lat;
+              this.location.longitude = marker.getPosition().lng;
+            });
+
             marker.on(GoogleMapsEvent.MARKER_CLICK)
               .subscribe(() => {
                 alert('clicked');
