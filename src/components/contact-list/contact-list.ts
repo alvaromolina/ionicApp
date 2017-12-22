@@ -2,7 +2,6 @@ import { Contact } from './../../models/contact';
 import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ContactInfoPage } from '../../pages/contact-info/contact-info';
-import { ChatPage } from '../../pages/chat/chat';
 
 /**
  * Generated class for the ContactListComponent component.
@@ -24,7 +23,7 @@ export class ContactListComponent {
 
 
   goToChat(contact: Contact){
-    this.navCtrl.push(ChatPage, {'contact': contact});
+    this.navCtrl.push('ChatPage', {'contact': contact});
     
   }
 

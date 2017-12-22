@@ -65,8 +65,11 @@ export class LocationPage {
     this.watch.subscribe((data) => {
       this.location.latitude = data.coords.latitude;
       this.location.longitude = data.coords.longitude;
-      this.marker.setPosition({lat: this.location.latitude, 
-        lng: this.location.longitude});
+      if(this.marker){
+        this.marker.setPosition({lat: this.location.latitude, 
+          lng: this.location.longitude});
+      }
+
     });
     
   }

@@ -1,7 +1,6 @@
 import { StatusServiceProvider } from './../../providers/status-service/status-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NewStatusPage } from '../new-status/new-status';
 import { Status } from '../../models/status';
 
 /**
@@ -34,6 +33,6 @@ export class StatusPage {
   }
 
   goToNewStatus(){
-    this.navCtrl.push(NewStatusPage);
+    this.navCtrl.push('NewStatusPage');
   }
 }

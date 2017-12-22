@@ -1,7 +1,4 @@
 import { Camera } from '@ionic-native/camera';
-import { ChatPage } from './../pages/chat/chat';
-import { ContactsPage } from './../pages/contacts/contacts';
-import { PruebaPipe } from './../pipes/prueba/prueba';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -11,18 +8,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ContactListComponent } from '../components/contact-list/contact-list';
-import { ContactInfoPage } from '../pages/contact-info/contact-info';
 import { ContactServiceProvider } from '../providers/contact-service/contact-service';
-import { StatusPage } from '../pages/status/status';
-import { StartPage } from '../pages/start/start';
-import { LoginPage } from '../pages/login/login';
 import { StatusServiceProvider } from '../providers/status-service/status-service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule, AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
-import { NewStatusPage } from '../pages/new-status/new-status';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps } from '@ionic-native/google-maps';
 
@@ -38,13 +30,7 @@ export const configFirebase = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    PruebaPipe,
-    ContactInfoPage,
-    StartPage,
-    LoginPage,
-    ChatPage,
-    NewStatusPage
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -57,12 +43,7 @@ export const configFirebase = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ContactInfoPage,
-    StartPage,
-    LoginPage,
-    ChatPage,
-    NewStatusPage
+    HomePage
   ],
   providers: [
     StatusBar,

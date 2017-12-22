@@ -1,7 +1,6 @@
 import { User } from './../../models/user';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { StartPage } from '../start/start';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 
@@ -32,7 +31,7 @@ export class RegisterPage {
     console.log(this.user);
     this.afAuth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
     .then(result => {
-      this.navCtrl.push(StartPage);
+      this.navCtrl.push('StartPage');
     }).catch(err => {
       let toast = this.toastCtrl.create({
         message: err.message,
